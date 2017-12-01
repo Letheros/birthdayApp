@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <h2>{{ message }}</h2>
+        <div class="col-xs-8">
+            <div style="border-style: groove; margin-top: 2%; width: 60%"
+                ng-repeat="mon in displayArray">
+                {{ mon.name }}
+                <span style="position: absolute; right: 45%"> {{ mon.count }}</span>
+                <customDirective birthName="{{mon.name}}" birthCount="{{mon.count}}"></customDirective>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <button class="btn btn-primary"
+                    style="margin-top: 10%"
+                    ng-click="setChronologicalOrder()">
+                Chronological order</button>
+            <button class="btn btn-success"
+                    style="margin-top: 10%"
+                    ng-click="setNumericalOrder()"1>
+                Numerical order</button>
+        </div>
+    </div>
+</div>

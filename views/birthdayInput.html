@@ -1,0 +1,25 @@
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
+    <h2 class="head">{{ message }}</h2>
+    <form role="form" name="addForm" ng-submit="onAddNewBirthday()">
+        <label for="nameInput">Name:</label>
+        <input type="text"
+               id="nameInput"
+               name="nameInput"
+               ng-model="birthday.name"
+               placeholder="Name"
+               required>
+        <span ng-show="addForm.nameInput.$error.required">Please input a name</span>
+        <hr>
+        <label for="birthdayInput">Birthday:</label>
+        <input type="text"
+               name="birthdayInput"
+               id="birthdayInput"
+               ng-pattern="/^(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-[0-9]{4}$/"
+               ng-model="birthday.date"
+               placeholder="dd-mm-yyyy"
+               required>
+        <span ng-hide="addForm.birthdayInput.$valid">Please input in correct form: dd-mm-yyyy</span>
+        <hr>
+        <button type="submit" class="btn btn-primary" ng-disabled="addForm.$invalid">Save</button>
+    </form>
+</div>
